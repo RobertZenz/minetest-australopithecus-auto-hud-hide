@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>autohudhide</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>autohudhide</code></h1>
+<p>A system which automatically hides hud items if there are no changes.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#activate">activate ()</a></td>
+	<td class="summary">Activates the system, if it has not been deactivated in the configuration
+ by settings autohudhide_activate to false.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_info">get_info (player)</a></td>
+	<td class="summary">Gets the info for the given player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#remove_info">remove_info (player)</a></td>
+	<td class="summary">Removes the info for the given player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#run">run ()</a></td>
+	<td class="summary">Runs the update on all players.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#run_on_player">run_on_player (player)</a></td>
+	<td class="summary">Runs the update on the given player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#update_healthbar">update_healthbar (player, info)</a></td>
+	<td class="summary">Updates the status of the healthbar for the given player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#update_hotbar">update_hotbar (player, info)</a></td>
+	<td class="summary">Updates the status of the hotbar for the given player.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#infos">infos</a></td>
+	<td class="summary">The infos of players used for determining when to hide elements.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#healthbar_timeout">healthbar_timeout</a></td>
+	<td class="summary">The timeout after which the healthbar is hidden.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hotbar_timeout">hotbar_timeout</a></td>
+	<td class="summary">The timeout after which the hotbar is hidden.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "activate"></a>
+    <strong>activate ()</strong>
+    </dt>
+    <dd>
+    Activates the system, if it has not been deactivated in the configuration
+ by settings autohudhide_activate to false.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_info"></a>
+    <strong>get_info (player)</strong>
+    </dt>
+    <dd>
+    Gets the info for the given player.  If there is none, one will be created.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+         The player for which to get the info.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The info object for the given player.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "remove_info"></a>
+    <strong>remove_info (player)</strong>
+    </dt>
+    <dd>
+    Removes the info for the given player.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+         The player for whom to remove the info.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "run"></a>
+    <strong>run ()</strong>
+    </dt>
+    <dd>
+    Runs the update on all players.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "run_on_player"></a>
+    <strong>run_on_player (player)</strong>
+    </dt>
+    <dd>
+    Runs the update on the given player.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+         The player on which to run.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "update_healthbar"></a>
+    <strong>update_healthbar (player, info)</strong>
+    </dt>
+    <dd>
+    Updates the status of the healthbar for the given player.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+         The player which to update.
+        </li>
+        <li><span class="parameter">info</span>
+         The info for the player.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "update_hotbar"></a>
+    <strong>update_hotbar (player, info)</strong>
+    </dt>
+    <dd>
+    Updates the status of the hotbar for the given player.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+         The player which to update.
+        </li>
+        <li><span class="parameter">info</span>
+         The info for the player.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Tables"></a>Tables</h2>
+    <dl class="function">
+    <dt>
+    <a name = "infos"></a>
+    <strong>infos</strong>
+    </dt>
+    <dd>
+    The infos of players used for determining when to hide elements.
+
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "healthbar_timeout"></a>
+    <strong>healthbar_timeout</strong>
+    </dt>
+    <dd>
+    The timeout after which the healthbar is hidden.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hotbar_timeout"></a>
+    <strong>hotbar_timeout</strong>
+    </dt>
+    <dd>
+    The timeout after which the hotbar is hidden.
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
