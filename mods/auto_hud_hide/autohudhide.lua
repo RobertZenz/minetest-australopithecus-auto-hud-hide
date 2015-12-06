@@ -28,11 +28,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --- A system which automatically hides hud items if there are no changes.
 autohudhide = {
-	--- The timeout after which the healthbar is hidden.
-	healthbar_timeout = settings.get_number("autohudhide_healthbar_timeout", 5),
+	--- The delay after which the healthbar is hidden.
+	healthbar_delay = settings.get_number("autohudhide_healthbar_delay", 5),
 	
-	--- The timeout after which the hotbar is hidden.
-	hotbar_timeout = settings.get_number("autohudhide_hotbar_timeout", 3),
+	--- The delay after which the hotbar is hidden.
+	hotbar_delay = settings.get_number("autohudhide_hotbar_delay", 3),
 	
 	--- The infos of players used for determining when to hide elements.
 	infos = {}
@@ -107,7 +107,7 @@ function autohudhide.update_healthbar(player, info)
 		info.last_health_change = os.time()
 		
 		player:hud_set_flags({ healthbar = true })
-	elseif info.healthbar_visible and (os.time() - info.last_health_change) >= autohudhide.healthbar_timeout then
+	elseif info.healthbar_visible and (os.time() - info.last_health_change) >= autohudhide.healthbar_delay then
 		info.healthbar_visible = false
 		
 		player:hud_set_flags({ healthbar = false })
@@ -127,7 +127,7 @@ function autohudhide.update_hotbar(player, info)
 		info.wield_item = current_wield_item
 		
 		player:hud_set_flags({ hotbar = true })
-	elseif info.hotbar_visible and (os.time() - info.last_wield_item_change) >= autohudhide.hotbar_timeout then
+	elseif info.hotbar_visible and (os.time() - info.last_wield_item_change) >= autohudhide.hotbar_delay then
 		info.hotbar_visible = false
 		
 		player:hud_set_flags({ hotbar = false })
