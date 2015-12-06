@@ -1,0 +1,31 @@
+minetest-australopithecus-auto-hud-hide
+=======================================
+
+A system which automatically hides the HUD if there are no changes.
+
+
+Usage
+-----
+
+The system activates itself, you just need to add the mod to the subgame.
+
+
+Configuration
+-------------
+
+The system can be configured by adding settings to the `minetest.conf`:
+
+    # If the system should be activated, defaults to true.
+    autohudhide_activate = true
+    
+    # The timeout after which the healthbar is hidden, in seconds, defaults
+    # to 5 seconds.
+    autohudhide_healthbar_timeout = 5
+    
+    # The timeout after which the hotbar is hidden, in seconds, defaults
+    # to 3 seconds.
+    autohudhide_hotbar_timeout = 3
+    
+    # The interval in which the check is run, in seconds, defaults to 0.1.
+    autohudhide_interval = 0.1
+
