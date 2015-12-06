@@ -54,7 +54,7 @@ end
 
 --- Gets the info for the given player. If there is none, one will be created.
 --
--- @param player_name The player for which to get the info.
+-- @param player The player for which to get the info.
 -- @return The info object for the given player.
 function autohudhide.get_info(player)
 	local info = autohudhide.infos[player:get_player_name()]
