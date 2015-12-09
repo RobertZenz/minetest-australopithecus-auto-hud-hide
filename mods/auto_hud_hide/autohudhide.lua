@@ -120,11 +120,15 @@ end
 -- @param info The info for the player.
 function autohudhide.update_hotbar(player, info)
 	local current_wield_item = player:get_wielded_item():to_string()
+	local current_wield_item_index = player:get_wield_index()
 	
-	if info.wield_item ~= current_wield_item then
+	if info.wield_item ~= current_wield_item
+		or info.wield_item_index ~= current_wield_item_index then
+		
 		info.hotbar_visible = true
 		info.last_wield_item_change = os.time()
 		info.wield_item = current_wield_item
+		info.wield_item_index = current_wield_item_index
 		
 		player:hud_set_flags({ hotbar = true })
 	elseif info.hotbar_visible and (os.time() - info.last_wield_item_change) >= autohudhide.hotbar_delay then
