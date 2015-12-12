@@ -28,8 +28,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --- A system which automatically hides hud items if there are no changes.
 autohudhide = {
+	--- If the healthbar should be automatically hidde.
+	healthbar_autohide = settings.get_bool("autohudhide_healthbar_autohide", true),
+	
 	--- The delay after which the healthbar is hidden.
 	healthbar_delay = settings.get_number("autohudhide_healthbar_delay", 5),
+	
+	--- If the hotbar should be automatically hidden.
+	hotbar_autohide = settings.get_bool("autohudhide_hotbar_autohide", true),
 	
 	--- The delay after which the hotbar is hidden.
 	hotbar_delay = settings.get_number("autohudhide_hotbar_delay", 3),
@@ -99,18 +105,20 @@ end
 -- @param player The player which to update.
 -- @param info The info for the player.
 function autohudhide.update_healthbar(player, info)
-	local current_health = player:get_hp()
-	
-	if info.health ~= current_health then
-		info.health = current_health
-		info.healthbar_visible = true
-		info.last_health_change = os.time()
+	if autohudhide.healthbar_autohide then
+		local current_health = player:get_hp()
 		
-		player:hud_set_flags({ healthbar = true })
-	elseif info.healthbar_visible and (os.time() - info.last_health_change) >= autohudhide.healthbar_delay then
-		info.healthbar_visible = false
-		
-		player:hud_set_flags({ healthbar = false })
+		if info.health ~= current_health then
+			info.health = current_health
+			info.healthbar_visible = true
+			info.last_health_change = os.time()
+			
+			player:hud_set_flags({ healthbar = true })
+		elseif info.healthbar_visible and (os.time() - info.last_health_change) >= autohudhide.healthbar_delay then
+			info.healthbar_visible = false
+			
+			player:hud_set_flags({ healthbar = false })
+		end
 	end
 end
 
@@ -119,22 +127,24 @@ end
 -- @param player The player which to update.
 -- @param info The info for the player.
 function autohudhide.update_hotbar(player, info)
-	local current_wield_item = player:get_wielded_item():to_string()
-	local current_wield_item_index = player:get_wield_index()
-	
-	if info.wield_item ~= current_wield_item
-		or info.wield_item_index ~= current_wield_item_index then
+	if autohudhide.hotbar_autohide then
+		local current_wield_item = player:get_wielded_item():to_string()
+		local current_wield_item_index = player:get_wield_index()
 		
-		info.hotbar_visible = true
-		info.last_wield_item_change = os.time()
-		info.wield_item = current_wield_item
-		info.wield_item_index = current_wield_item_index
-		
-		player:hud_set_flags({ hotbar = true })
-	elseif info.hotbar_visible and (os.time() - info.last_wield_item_change) >= autohudhide.hotbar_delay then
-		info.hotbar_visible = false
-		
-		player:hud_set_flags({ hotbar = false })
+		if info.wield_item ~= current_wield_item
+			or info.wield_item_index ~= current_wield_item_index then
+			
+			info.hotbar_visible = true
+			info.last_wield_item_change = os.time()
+			info.wield_item = current_wield_item
+			info.wield_item_index = current_wield_item_index
+			
+			player:hud_set_flags({ hotbar = true })
+		elseif info.hotbar_visible and (os.time() - info.last_wield_item_change) >= autohudhide.hotbar_delay then
+			info.hotbar_visible = false
+			
+			player:hud_set_flags({ hotbar = false })
+		end
 	end
 end
 

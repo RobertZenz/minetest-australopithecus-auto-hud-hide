@@ -18,9 +18,15 @@ The system can be configured by adding settings to the `minetest.conf`:
     # If the system should be activated, defaults to true.
     autohudhide_activate = true
     
+    # If the healthbar should be automatically hidden, defaults to true.
+    autohudhide_healthbar_autohide
+    
     # The delay after which the healthbar is hidden, in seconds, defaults
     # to 5 seconds.
     autohudhide_healthbar_delay = 5
+    
+    # If the hotbar should be automatically hidden, defaults to true.
+    autohudhide_hotbar_autohide = true
     
     # The delay after which the hotbar is hidden, in seconds, defaults
     # to 3 seconds.
