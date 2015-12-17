@@ -4,6 +4,13 @@ minetest-australopithecus-auto-hud-hide
 A system which automatically hides the HUD if there are no changes.
 
 
+Features
+--------
+
+ * Allows to hide the healthbar and hotbar.
+ * Completely configurable from teh configuration.
+
+
 Usage
 -----
 
