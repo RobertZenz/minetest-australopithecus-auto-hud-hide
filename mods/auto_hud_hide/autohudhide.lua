@@ -28,6 +28,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --- A system which automatically hides hud items if there are no changes.
 autohudhide = {
+	--- If the system should be activated automatically.
+	activate = settings.get_bool("autohudhide_activate", true),
+	
+	--- If the system is currently active/has been activated.
+	active = false,
+	
 	--- If the healthbar should be automatically hidde.
 	healthbar_autohide = settings.get_bool("autohudhide_healthbar_autohide", true),
 	
@@ -41,20 +47,32 @@ autohudhide = {
 	hotbar_delay = settings.get_number("autohudhide_hotbar_delay", 3),
 	
 	--- The infos of players used for determining when to hide elements.
-	infos = {}
+	infos = {},
+	
+	--- The interval in which the system is running.
+	interval = settings.get_number("autohudhide_interval", 0.1)
 }
 
 
 --- Activates the system, if it has not been deactivated in the configuration
 -- by settings autohudhide_activate to false.
 function autohudhide.activate()
-	if settings.get_bool("autohudhide_activate", true) then
+	if autohudhide.activate then
+		autohudhide.activate_internal()
+	end
+end
+
+--- Activates the system, without checking the configuration.
+function autohudhide.activate_internal()
+	if not autohudhide.active then
 		minetest.register_on_leaveplayer(autohudhide.remove_info)
 		scheduler.schedule(
 			"autohudhide",
-			settings.get_number("autohudhide_interval", 0.1),
+			autohudehide.interval,
 			autohudhide.run,
 			scheduler.OVERSHOOT_POLICY_RUN_ONCE)
+		
+		active = true
 	end
 end
 
