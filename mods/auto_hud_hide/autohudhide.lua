@@ -72,7 +72,7 @@ function autohudhide.activate_internal()
 			autohudhide.run,
 			scheduler.OVERSHOOT_POLICY_RUN_ONCE)
 		
-		active = true
+		autohudhide.active = true
 	end
 end
 
