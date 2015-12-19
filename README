@@ -42,3 +42,18 @@ The system can be configured by adding settings to the `minetest.conf`:
     # The interval in which the check is run, in seconds, defaults to 0.1.
     autohudhide_interval = 0.1
 
+
+Run manually
+------------
+
+You can invoke the system manually either for all players by invoking
+`autohudhide.run`, or on a single player by invoking `autohidehud.run_on_player`
+which accepts the Player as single parameter.
+
+
+Force activation
+----------------
+
+You can also force the activation of the system, even if it has been disabled
+in the configuration, by invoking `autohudhide.activate_internal`.
+
