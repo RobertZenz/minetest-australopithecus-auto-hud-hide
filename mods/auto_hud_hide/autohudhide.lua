@@ -29,7 +29,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --- A system which automatically hides hud items if there are no changes.
 autohudhide = {
 	--- If the system should be activated automatically.
-	activate = settings.get_bool("autohudhide_activate", true),
+	activate_automatically = settings.get_bool("autohudhide_activate", true),
 	
 	--- If the system is currently active/has been activated.
 	active = false,
@@ -57,7 +57,7 @@ autohudhide = {
 --- Activates the system, if it has not been deactivated in the configuration
 -- by settings autohudhide_activate to false.
 function autohudhide.activate()
-	if autohudhide.activate then
+	if autohudhide.activate_automatically then
 		autohudhide.activate_internal()
 	end
 end
