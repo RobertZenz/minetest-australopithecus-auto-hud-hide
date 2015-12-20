@@ -68,7 +68,7 @@ function autohudhide.activate_internal()
 		minetest.register_on_leaveplayer(autohudhide.remove_info)
 		scheduler.schedule(
 			"autohudhide",
-			autohudehide.interval,
+			autohudhide.interval,
 			autohudhide.run,
 			scheduler.OVERSHOOT_POLICY_RUN_ONCE)
 		
